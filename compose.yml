@@ -4,9 +4,9 @@ services:
     container_name: ocv-frontend
     build: .
     restart: unless-stopped
-    depends_on:
-      - nginx
-      - backend-express
+    # depends_on:
+    #   - nginx
+    #   - backend-express
     environment:
       - REST_ENDPOINT=${REST_ENDPOINT} # optional
     volumes: 
