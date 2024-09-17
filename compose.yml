@@ -1,0 +1,19 @@
+---
+services:
+  frontend:
+    container_name: ocv-frontend
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - nginx
+      - backend-express
+    environment:
+      - REST_ENDPOINT=${REST_ENDPOINT} # optional
+    volumes: 
+      - ./frontend/:/usr/app/
+    networks:
+      - ocv-network
+
+networks:
+  ocv-network:
+    external: true
