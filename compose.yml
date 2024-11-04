@@ -9,11 +9,15 @@ services:
     #   - backend-express
     environment:
       - REST_ENDPOINT=${REST_ENDPOINT} # optional
+    ports:
+      - '3000:3000'
     volumes: 
-      - ./frontend/:/usr/app/
+      - ocv-frontend:/usr/app/
     networks:
       - ocv-network
 
 networks:
   ocv-network:
     external: true
+volumes:
+  ocv-frontend:
